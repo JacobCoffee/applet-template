@@ -1,0 +1,10 @@
+app_name:
+    type: str
+    help: Name of the new Litestar applet
+
+db:
+    type: bool
+    help: Include database-related files?
+    default: false
+
+_templates_suffix: ""

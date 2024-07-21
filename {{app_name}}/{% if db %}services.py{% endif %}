@@ -1,0 +1,40 @@
+"""{{app_name}} services.
+
+.. todo:: You will need to import your models and update the service methods as well as
+    some import handling.
+"""
+from __future__ import annotations
+
+from typing import Any
+
+from structlog import get_logger
+
+__all__ = ("{{app_name}}Repository", "{{app_name}}Service")
+
+logger = get_logger()
+
+
+class {{app_name}}Repository(SQLAlchemyAsyncSlugRepository[SomeModel]):
+    """{{app_name}} SQLAlchemy Repository."""
+
+    model_type = SomeModel
+
+
+class {{app_name}}Service(SQLAlchemyAsyncRepositoryService[SomeModel]):
+    """Handles basic operations for a SomeModel."""
+
+    repository_type = {{app_name}}
+    Repository
+    match_fields = ["name"]
+
+    async def to_model(self, data: SomeModel | dict[str, Any], operation: str | None = None) -> SomeModel:
+        """Convert data to a model.
+
+        Args:
+            data (SomeModel | dict[str, Any]): Data to convert to a model
+            operation (str | None): Operation to perform on the data
+
+        Returns:
+            Project: Converted model
+        """
+        return await super().to_model(data, operation)
