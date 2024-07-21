@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from litestar import Controller, get
 from structlog import get_logger
 
-from .{{app_name}} import urls
+from ..{{app_name}} import urls
 
 __all__ = ("{{app_name}}Controller",)
 
@@ -12,7 +12,7 @@ logger = get_logger()
 load_dotenv()
 
 
-class CoreController(Controller):
+class {{app_name}}Controller(Controller):
     """{{app_name}} Controller."""
 
     @get([urls.HEALTH]
