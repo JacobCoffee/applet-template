@@ -2,6 +2,7 @@
 
 from dotenv import load_dotenv
 from litestar import Controller, get
+from litestar.status_codes import HTTP_200_OK
 from structlog import get_logger
 
 from ..{{app_name}} import urls
@@ -15,7 +16,7 @@ load_dotenv()
 class {{app_name}}Controller(Controller):
     """{{app_name}} Controller."""
 
-    @get([urls.HEALTH]
+    @get([urls.HEALTH],
         operation_id="{{app_name}}Health",
         name="{{app_name}}:health",
         status_code=HTTP_200_OK,
